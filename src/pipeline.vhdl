@@ -27,7 +27,8 @@ begin
 -- Stages
   Fetch : entity work.Fetch(Fetch)
     generic map (
-      WORD_SIZE => WORD_SIZE
+      WORD_SIZE => WORD_SIZE,
+		BRANCH_SIZE => BRANCH_SIZE
       )
     port map (
       clock  => clock,

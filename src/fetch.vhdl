@@ -5,11 +5,12 @@ use ieee.numeric_std.all;
 
 entity Fetch is
   generic (
-    WORD_SIZE : integer
+    WORD_SIZE : integer;
+	 BRANCH_SIZE : integer
     );
   port (
     clock  : in  std_logic;
-    branch : in  signed(WORD_SIZE-1 downto 0);
+    branch : in  signed(BRANCH_SIZE-1 downto 0);
     count  : out unsigned(WORD_SIZE-1 downto 0)
     );
 end Fetch;

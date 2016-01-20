@@ -17,13 +17,14 @@ entity ROM is
 end ROM;
 
 architecture ROM of ROM is
-  type mem is array (0 to ROM_SIZE) of unsigned(WORD_SIZE-1 downto 0);
+  type mem_t is array (0 to ROM_SIZE) of unsigned(WORD_SIZE-1 downto 0);
+  signal mem : mem_t;
 begin
 
   process (clock)
   begin
     if rising_edge(clock) then
-      data <= mem(addr);
+      data <= mem(to_integer(addr));
     end if;
   end process;
 
