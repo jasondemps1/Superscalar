@@ -24,16 +24,16 @@ architecture CPU_bench of CPU is
 
 begin
 
-  Pipe_Gen : for i in 0 to NUM_PIPELINES then
+  Pipe_Gen : for i in 0 to NUM_PIPELINES generate
     Pipeline : entity work.Pipeline(Pipeline_bench)
       generic map (
-        WORD_SIZE   => WORD_SIZE;
-        ROM_SIZE    => ROM_SIZE;
+        WORD_SIZE   => WORD_SIZE,
+        ROM_SIZE    => ROM_SIZE,
         BRANCH_SIZE => BRANCH_SIZE
         )
       port map (
         clock => clock_gated
         );
-  end Pipe_Gen;
+  end generate Pipe_Gen;
 
-  end CPU_bench;
+end CPU_bench;

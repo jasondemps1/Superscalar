@@ -6,13 +6,13 @@ use ieee.numeric_std.all;
 
 entity ROM is
   generic (
-    RAM_SIZE  : integer;
+    ROM_SIZE  : integer;
     WORD_SIZE : integer
     );
   port (
     clock : in  std_logic;
     addr  : in  unsigned(WORD_SIZE-1 downto 0);
-    data  : out unsigned(WORD_SIZE-1 downto 0);
+    data  : out unsigned(WORD_SIZE-1 downto 0)
     );
 end ROM;
 

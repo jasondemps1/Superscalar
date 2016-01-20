@@ -17,7 +17,7 @@ end Pipeline;
 architecture Pipeline_bench of Pipeline is
   -- LOCAL SIGNALS
   signal pc_value     : unsigned(WORD_SIZE-1 downto 0);
-  signal branch_value : unsigned(BRANCH_SIZE-1 downto 0);
+  signal branch_value : signed(BRANCH_SIZE-1 downto 0);
   signal rom_instr    : unsigned(WORD_SIZE-1 downto 0);
 begin
 
@@ -30,20 +30,20 @@ begin
       WORD_SIZE => WORD_SIZE
       )
     port map (
-      clock  => clock_gated;
-      branch => branch_value;
+      clock  => clock,
+      branch => branch_value,
       count  => pc_value
       );
 
   -- Memory
   imem : entity work.ROM(ROM)
     generic map (
-      ROM_SIZE  => ROM_SIZE;
+      ROM_SIZE  => ROM_SIZE,
       WORD_SIZE => WORD_SIZE
       )
     port map (
-      clock => clock_gated;
-      addr  => pc_value;
+      clock => clock,
+      addr  => pc_value,
       data  => rom_instr
       );
 

@@ -10,7 +10,7 @@ entity Fetch is
   port (
     clock  : in  std_logic;
     branch : in  signed(WORD_SIZE-1 downto 0);
-    count  : out unsigned(WORD_SIZE-1 downto 0);
+    count  : out unsigned(WORD_SIZE-1 downto 0)
     );
 end Fetch;
 

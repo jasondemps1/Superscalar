@@ -1,7 +1,10 @@
 -- SuperScalar library
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 package lib is
-  constant NUM_PIPELINES integer := 1;
+  constant NUM_PIPELINES : integer := 1;
 
   type Rinstr is record
     funct7 : unsigned(6 downto 0);
@@ -10,7 +13,7 @@ package lib is
     funct3 : unsigned(2 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end Rinstr;
+  end record Rinstr;
 
   type Iinstr is record
     imm    : unsigned(11 downto 0);
@@ -18,7 +21,7 @@ package lib is
     funct3 : unsigned(2 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end Iinstr;
+  end record Iinstr;
 
   type Sinstr is record
     imm    : unsigned(11 downto 0);
@@ -27,7 +30,7 @@ package lib is
     funct3 : unsigned(2 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end Sinstr;
+  end record Sinstr;
 
   type SBinstr is record
     imm    : unsigned(11 downto 0);
@@ -36,19 +39,19 @@ package lib is
     funct3 : unsigned(2 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end SBinstr;
+  end record SBinstr;
 
   type Uinstr is record
     imm    : unsigned(18 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end Uinstr;
+  end record Uinstr;
 
   type UJinstr is record
     imm    : unsigned(18 downto 0);
     rd     : unsigned(4 downto 0);
     opcode : unsigned(6 downto 0);
-  end UJinstr;
+  end record UJinstr;
 
 end lib;
 
